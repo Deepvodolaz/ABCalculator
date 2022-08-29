@@ -2,14 +2,24 @@
 
 import tkinter as tk
 
+# Функция закрытия программы
+def do_close():
+    root.destroy()
+    
+def popup_window():
+    window = tk.Toplevel()
+    window.geometry("280x300")
+    window.title("A/B результат")
+    
+    # Добавление кнопки закрытия окна
+    btnClosePopup = tk.Button(window, text="Закрыть", font = ('Helvetika', 10, 'bold'), command=window.destroy)
+    btnClosePopup.place(x=160, y=250, width=90, height=30)
+    
+
 # Создание главного окна
 root = tk.Tk()
 root.geometry("280x300")
 root.title("А/В калькулятор")
-
-# Функция закрытия программы
-def do_close():
-    root.destroy()
 
 # Добавление метки заголовка
 lblTitle = tk.Label(text = "А/В калькулятор", font = ('Helvetika', 16, 'bold'), fg = '#0000cc')
@@ -52,7 +62,7 @@ entConversions2.place(x=115, y=205, width=90, height=20)
 
 
 # Добавление кнопки "Рассчитать"
-btnChart1 = tk.Button(root, text="Рассчитать", font = ('Helvetika', 10, 'bold'))
+btnChart1 = tk.Button(root, text="Рассчитать", font = ('Helvetika', 10, 'bold'), command=popup_window)
 btnChart1.place(x=25, y=250, width=90, height=30)
 
 # Добавление кнопки закрытия программы
